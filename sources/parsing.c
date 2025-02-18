@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_check.c                                  :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allefran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:51:39 by allefran          #+#    #+#             */
-/*   Updated: 2025/02/12 13:53:04 by allefran         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:58:42 by allefran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,24 @@ int	ft_check_duplicate(int argc, char **argv)
 				return (1);
 			}
 			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+// 0: valid value	1: integer out of limits
+int	ft_check_integer(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_atol(argv[i]) < INT_MIN || ft_atol(argv[i]) > INT_MAX)
+		{
+			write(2, "Error\n", 6);
+			return (1);
 		}
 		i++;
 	}

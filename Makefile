@@ -6,13 +6,17 @@ INC_DIR		= headers
 LIBFT_DIR	= libft
 LIBFT		=	$(LIBFT_DIR)/libft.a
 
-LST_SRCS	=	main.c \
-				push_swap_check.c \
-				push_swap_list.c \
-				push_swap_move.c \
-				push_swap_normalize.c \
-				push_swap_binary.c \
-				push_swap_radix.c
+LST_SRCS	=	atol.c \
+				binary.c \
+				check_sorted.c \
+				list.c \
+				main.c \
+				max.c \
+				move.c \
+				normalize.c \
+				parsing.c \
+				radix.c \
+				sort_3.c
 LST_INCS	=	push_swap.h
 LST_OBJS	=	$(LST_SRCS:.c=.o)
 
