@@ -6,7 +6,7 @@
 /*   By: allefran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:51:48 by allefran          #+#    #+#             */
-/*   Updated: 2025/02/17 13:12:25 by allefran         ###   ########.fr       */
+/*   Updated: 2025/02/18 09:57:53 by allefran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ t_stack	*ft_init_node(int value)
 		return (NULL);
 	node->value = value;
 	node->bin_value = ft_binary_convert(value);
+	if (node->bin_value == NULL)
+	{
+		free(node);
+		return (NULL);
+	}
 	node->next = NULL;
 	return (node);
 }
@@ -68,6 +73,7 @@ void	ft_free_stack(t_stack **stack)
 	while (current != NULL)
 	{
 		next = current->next;
+		free(current->bin_value);
 		free(current);
 		current = next;
 	}

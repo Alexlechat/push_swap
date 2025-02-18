@@ -6,7 +6,7 @@
 /*   By: allefran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:52:11 by allefran          #+#    #+#             */
-/*   Updated: 2025/02/17 13:48:51 by allefran         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:39:06 by allefran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ long	ft_atol(const char *nptr);
 char	*ft_binary_convert(int number);
 
 //check_sorted.c
-int		is_sorted(t_stack *stack);
+int		ft_is_sorted(t_stack *stack);
 
 //list.c
 t_stack	*ft_init_node(int value);

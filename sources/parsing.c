@@ -6,7 +6,7 @@
 /*   By: allefran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:51:39 by allefran          #+#    #+#             */
-/*   Updated: 2025/02/17 13:58:42 by allefran         ###   ########.fr       */
+/*   Updated: 2025/02/18 09:22:40 by allefran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ft_check_duplicate(int argc, char **argv)
 	return (0);
 }
 
-// 0: valid value	1: integer out of limits
+// 0: valid value	1: integer out of limit
 int	ft_check_integer(int argc, char **argv)
 {
 	int	i;
