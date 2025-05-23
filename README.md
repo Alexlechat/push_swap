@@ -25,7 +25,7 @@ Pour les petits jeux de données (≤ 5), des algorithmes de tri brut avec condi
 | `ra`, `rb`, `rr` | Rotate (vers le haut)              |
 | `rra`, `rrb`, `rrr` | Reverse rotate (vers le bas)     |
 
-## 🧪 Compilation & Exécution
+## Compilation & Exécution
 
 ### Compiler le programme
 ```bash
