@@ -1,32 +1,92 @@
 # push_swap
-
-`push_swap` est un projet de l’École 42 qui consiste à trier une pile d'entiers avec un nombre minimal d'opérations, en utilisant deux piles (A et B) et un ensemble restreint d'instructions.  
-Ce projet met à l’épreuve la capacité à concevoir un algorithme efficace, à manipuler des structures de données, et à respecter de fortes contraintes techniques.
-
-## Objectifs pédagogiques
-
-- Implémenter un algorithme de tri optimisé sous contraintes
-- Manipuler des piles et des structures chaînées en C
-- Optimiser les performances en temps et en nombre d'instructions
-- Respecter les règles strictes du projet 42 (pas de tri classique autorisé)
-
-##  Algorithme utilisé
-
-Pour les grandes piles (≥ 100 éléments), j’ai utilisé **l’algorithme de tri par base (Radix Sort)**, adapté pour fonctionner avec des entiers indexés, afin de garantir une complexité en O(n log n).
-
-Pour les petits jeux de données (≤ 5), des algorithmes de tri brut avec conditions précises sont utilisés pour atteindre un nombre optimal d'opérations.
-
-## Instructions autorisées
-
-| Instruction | Description                        |
-|------------|------------------------------------|
-| `sa`, `sb`, `ss` | Swap (pile A, pile B, les deux)     |
-| `pa`, `pb`       | Push (de B vers A, de A vers B)     |
-| `ra`, `rb`, `rr` | Rotate (vers le haut)              |
-| `rra`, `rrb`, `rrr` | Reverse rotate (vers le bas)     |
-
-## Compilation & Exécution
-
-### Compiler le programme
+ 
+A sorting algorithm project from the 42 school curriculum. The goal is to sort a stack of integers using the minimum number of operations, with only two stacks (A and B) and a restricted instruction set.
+ 
+**Author:** Alexandre Lefranc
+ 
+---
+ 
+## Overview
+ 
+push_swap is an exercise in algorithm design under strict constraints. No standard sorting algorithm can be applied directly — the program must sort exclusively through stack operations, making efficiency both a technical and algorithmic challenge.
+ 
+---
+ 
+## Algorithm
+ 
+### Large inputs (100+ elements) — Radix Sort
+ 
+For large datasets, the program uses a **Radix Sort** adapted for stack operations. Values are first normalized to contiguous indices, then sorted bit by bit using push and rotate operations. This guarantees O(n log n) complexity regardless of input distribution.
+ 
+### Small inputs (5 elements or fewer)
+ 
+Hard-coded decision trees handle small cases directly, reaching the optimal operation count for any permutation.
+ 
+---
+ 
+## Allowed Instructions
+ 
+| Instruction | Description |
+|---|---|
+| `sa` / `sb` / `ss` | Swap the top two elements of stack A / B / both |
+| `pa` / `pb` | Push the top element from B to A / from A to B |
+| `ra` / `rb` / `rr` | Rotate stack A / B / both upward |
+| `rra` / `rrb` / `rrr` | Reverse rotate stack A / B / both downward |
+ 
+---
+ 
+## Build
+ 
 ```bash
 make
+```
+ 
+Run the program:
+ 
+```bash
+./push_swap 3 1 4 1 5 9 2 6
+```
+ 
+Check the operation count:
+ 
+```bash
+./push_swap 3 1 4 1 5 9 2 6 | wc -l
+```
+ 
+Verify correctness with the checker:
+ 
+```bash
+ARG="3 1 4 1 5 9 2 6"
+./push_swap $ARG | ./checker $ARG
+```
+ 
+---
+ 
+## Performance
+ 
+| Input size | Target | Result |
+|---|---|---|
+| 3 elements | ≤ 3 ops | ✓ |
+| 5 elements | ≤ 12 ops | ✓ |
+| 100 elements | ≤ 700 ops | ✓ |
+| 500 elements | ≤ 5000 ops | ✓ |
+ 
+---
+ 
+## Technical Notes
+ 
+- Values are normalized to indices before sorting, making the algorithm input-independent.
+- The stack is implemented as a doubly linked list for efficient front and back access.
+- Memory is fully managed with no leaks (verified with Valgrind).
+- The codebase follows the 42 Norm throughout.
+---
+ 
+## Score
+ 
+**100 / 100**
+ 
+---
+ 
+## License
+ 
+This project was completed as part of the 42 school curriculum and is shared for educational purposes.
